@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State Machine Playground</title>
+    <link rel="stylesheet" href="./main.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <section class="circle-drawer">
+        <div class="flow">
+          <h1>Circle Drawer</h1>
+          <div class="circle-drawer__controls">
+            <button id="undo-button">Undo</button>
+            <button id="redo-button">Redo</button>
+          </div>
+          <canvas
+            id="canvas"
+            class="circle-drawer__canvas"
+            width="400"
+            height="400"
+          ></canvas>
+        </div>
+        <section id="selecting-actions-window" class="window card" hidden>
+          <header class="window__header">
+            <button
+              id="close-selecting-actions-window-button"
+              class="window__button window__button--close"
+            >
+              X
+            </button>
+          </header>
+          <div class="window__body">
+            <button
+              id="select-action-button"
+              class="window__button window__button--action"
+            >
+              Adjust Diameter
+            </button>
+          </div>
+        </section>
+        <section id="adjusting-diameter-window" class="window card" hidden>
+          <header class="window__header">
+            <button
+              id="close-adjusting-diameter-window-button"
+              class="window__button window__button--close"
+            >
+              X
+            </button>
+          </header>
+          <div class="window__body flow">
+            <label for="diameter-input">Adjust diameter</label>
+            <input
+              type="range"
+              name="diameter"
+              id="diameter-input"
+              min="40"
+              max="200"
+              step="5"
+              value="20"
+              aria-describedby="circle-position"
+            />
+            <p id="circle-position">
+              Circle's position:<br />
+              X: <span id="circle-position-x">100.00</span><br />
+              Y: <span id="circle-position-y">100.00</span><br />
+            </p>
+          </div>
+        </section>
+      </section>
+    </div>
+  </body>
+</html>
